@@ -42,7 +42,7 @@ COPY --from=builder /app/scripts/web /usr/share/nginx/html
 RUN yarn install --frozen-lockfile --production
 
 # 配置 nginx
-RUN cat > /etc/nginx/http.d/default.conf << 'EOF'
+RUN cat > /etc/nginx/http.d/default.conf <<'EOF'
 server {
     listen 80;
     location / {
@@ -58,7 +58,7 @@ RUN sed -i 's|error_log /var/log/nginx/error.log warn;|error_log /dev/stderr war
     sed -i 's|access_log /var/log/nginx/access.log main;|access_log /dev/stdout main;|g' /etc/nginx/nginx.conf || true
 
 # 配置 supervisor
-RUN cat > /etc/supervisord.conf << 'EOF'
+RUN cat > /etc/supervisord.conf <<'EOF'
 [supervisord]
 nodaemon=true
 logfile=/var/log/supervisord.log
