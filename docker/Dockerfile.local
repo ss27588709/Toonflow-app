@@ -1,5 +1,5 @@
 # 本地构建阶段 - 使用本地源码，不从 git 克隆
-FROM registry.cn-hangzhou.aliyuncs.com/library/node:24-alpine AS builder
+FROM  docker.1ms.run/node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ COPY scripts/ ./scripts/
 RUN yarn build
 
 # 生产阶段
-FROM registry.cn-hangzhou.aliyuncs.com/library/node:24-alpine
+FROM docker.1ms.run/node:24-alpin
 
 WORKDIR /app
 
