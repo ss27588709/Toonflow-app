@@ -19,7 +19,7 @@ COPY scripts/ ./scripts/
 RUN yarn build
 
 # 生产阶段
-FROM docker.1ms.run/node:24-alpin
+FROM docker.1ms.run/node:24-alpine
 
 WORKDIR /app
 
